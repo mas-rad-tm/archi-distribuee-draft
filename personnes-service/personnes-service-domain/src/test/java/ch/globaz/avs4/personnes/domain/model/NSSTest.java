@@ -12,19 +12,13 @@ import java.util.Set;
 
 import static junit.framework.TestCase.assertTrue;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertFalse;
+
 
 
 public class NSSTest {
 
     static Validator validator;
 
-    @BeforeClass
-    public static void setUp() {
-        ValidatorFactory factory =
-                Validation.buildDefaultValidatorFactory();
-        validator = factory.getValidator();
-    }
 
     @Test
     public void assertThatInstanciationWork(){
@@ -35,7 +29,7 @@ public class NSSTest {
 
     }
 
-    @Test
+    @Test(expected = NullPointerException.class)
     public void assertThatNullValueThrowException(){
 
         NSS nss = new NSS(null);

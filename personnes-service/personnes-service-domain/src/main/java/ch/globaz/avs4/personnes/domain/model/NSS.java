@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import javax.validation.constraints.NotNull;
+import java.util.Objects;
 
 
 @EqualsAndHashCode
@@ -13,11 +14,12 @@ public class NSS implements ValueObject<NSS>{
 
     NSS () {}
 
-    @NotNull(message = "le nss ne peut pas être null")
+
     private String nss;
 
-    public NSS(@NotNull() String nss){
+    public NSS(String nss){
 
+        Objects.requireNonNull(nss, "Le nss ne peut pas eter null");
         this.nss = nss;
     }
 
