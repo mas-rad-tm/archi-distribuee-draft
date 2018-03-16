@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ch.globaz.tmmas</groupId>
+    <groupId>ch.globaz.avs4</groupId>
     <artifactId>zuul-api-gateway</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -16,6 +16,8 @@
         <logback.encoder.version>4.11</logback.encoder.version>
         <lombok.version>1.16.20</lombok.version>
         <faker.version>0.14</faker.version>
+        <spring-cloud-dependencies.version>Camden.SR7</spring-cloud-dependencies.version>
+
     </properties>
 
     <parent>
@@ -26,23 +28,15 @@
 
     <dependencyManagement>
         <dependencies>
-           <!-- <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>-->
 
-            <!--
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring.cloud.version}</version>
+                <version>${spring-cloud-dependencies.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
--->
+
             <!-- ****** Logging ****** -->
             <!-- logback classic
             repo: https://mvnrepository.com/artifact/ch.qos.logback/logback-classic
@@ -132,6 +126,11 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
 
         <dependency>

@@ -3,7 +3,7 @@
 #####################################################################
 server:
   port:                                     8100
-  contextPath:                              /config
+
 
 spring:
   application:
@@ -19,7 +19,7 @@ spring:
 
       server:
         git:
-          uri:                      https://github.com/mas-rad-tm/config-repo
+          uri:                              http://gitlab.ju.globaz.ch/AVS4.0/archi-distribuee-config.git
 
       # ne pas ecraser les arguments jvm
       overrideSystemProperties:             false

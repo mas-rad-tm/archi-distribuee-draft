@@ -23,7 +23,7 @@
         <encoder class="net.logstash.logback.encoder.LogstashEncoder" />
     </appender>
 
-    <logger name="ch.globaz.tmmas" level="DEBUG" />
+    <logger name="ch.globaz.avs4" level="DEBUG" />
 
 
     <!-- ********** autre configuration utile p.ex ********** -->

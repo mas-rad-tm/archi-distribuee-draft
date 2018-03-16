@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ch.globaz.tmmas</groupId>
+    <groupId>ch.globaz.avs4</groupId>
     <artifactId>indexation-search-service</artifactId>
     <version>1.0-SNAPSHOT</version>
     <build>
@@ -23,6 +23,9 @@
     <properties>
         <spring-boot.version>1.5.10.RELEASE</spring-boot.version>
         <lombok.version>1.16.20</lombok.version>
+        <spring-cloud-dependencies.version>Camden.SR7</spring-cloud-dependencies.version>
+        <logback.version>1.2.3</logback.version>
+        <logback.encoder.version>4.11</logback.encoder.version>
     </properties>
 
     <dependencyManagement>
@@ -36,6 +39,23 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- actuator spring metrics
+            repo: https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator
+            doc: https://docs.spring.io/spring-boot/docs/1.5.9.RELEASE/reference/htmlsingle/ -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-actuator</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud-dependencies.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -56,6 +76,37 @@
                 <version>2.6.5</version>
             </dependency>
 
+            <!-- ****** Logging ****** -->
+            <!-- logback classic
+            repo: https://mvnrepository.com/artifact/ch.qos.logback/logback-classic
+            doc: https://logback.qos.ch/documentation.html -->
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+                <!-- test is mandatory here, will be overriden by final artifacts -->
+                <scope>test</scope>
+            </dependency>
+
+            <!-- logback core
+            repo: https://mvnrepository.com/artifact/ch.qos.logback/logback-core
+            doc: https://logback.qos.ch/documentation.html -->
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback.version}</version>
+                <!-- test is mandatory here, will be overriden by final artifacts -->
+                <scope>test</scope>
+            </dependency>
+
+            <!-- logback logstash encoder, formattage json des logs
+            repo: https://mvnrepository.com/artifact/net.logstash.logback/logstash-logback-encoder
+            doc: https://github.com/logstash/logstash-logback-encoder -->
+            <dependency>
+                <groupId>net.logstash.logback</groupId>
+                <artifactId>logstash-logback-encoder</artifactId>
+                <version>${logback.encoder.version}</version>
+            </dependency>
 
         </dependencies>
 
@@ -73,21 +124,21 @@
             <artifactId>spring-boot-starter-activemq</artifactId>
         </dependency>
 
-       <!-- <dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-autoconfigure</artifactId>
-            <version>1.5.10.RELEASE</version>
-        </dependency>-->
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
         </dependency>
-        <dependency>
-            <groupId>ch.globaz.tmmas</groupId>
-            <artifactId>rentes-service-domain</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
+
 
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -98,13 +149,31 @@
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.elasticsearch.client/transport -->
-       <!-- <dependency>
-            <groupId>org.elasticsearch.client</groupId>
-            <artifactId>transport</artifactId>
-            <version>6.2.2</version>
-        </dependency>-->
 
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+        </dependency>
 
     </dependencies>
     

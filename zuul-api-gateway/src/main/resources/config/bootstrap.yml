@@ -1,7 +1,16 @@
-server:
-  port:                              ${PORT:8200}
-  contextPath:                       /gateway
 spring:
   application:
-    name: gateway-service
+    name: gateway-server
 
+  #config branche
+  cloud:
+    config:
+      label:                                            gateway-server
+      # config uri
+      uri:                                              http://localhost:8100/
+      # fail fast si pas config server
+      failFast:                                         true
+
+logging:
+  # url format : /{apname}/{profile}/{label}/{filename}
+  config:               http://localhost:8100/gateway-server/default/gateway-server/logback-spring.xml

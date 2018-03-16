@@ -1,0 +1,13 @@
+  #config branche
+spring:
+  cloud:
+    config:
+      label:                                            personnes-service
+      # config uri
+      uri:                                              http://localhost:8100/
+      # fail fast si pas config server
+      failFast:                                         true
+
+logging:
+  # url format : /{apname}/{profile}/{label}/{filename}
+  config:               http://localhost:8100/personnes-service/default/personnes-service/logback-spring.xml

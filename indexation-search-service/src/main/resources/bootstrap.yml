@@ -1,0 +1,37 @@
+#####################################################################
+# Configuration Spring de base
+#####################################################################
+# app name
+spring:
+
+  application:
+    name:                                               search-service
+
+
+#dev h2
+#spring.profiles.active=dev
+
+#config branche
+  cloud:
+    config:
+      label:                                            search-service
+# config uri
+      uri:                                              http://localhost:8100
+# fail fast si pas config server
+      failFast:                                         true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone:                                      http://localhost:8761/eureka/
+    registerWithEureka:                                 true
+    fetchRegistry:                                      true
+    healthcheck:
+      enabled:                                          true
+  instance:
+    leaseRenewalIntervalInSeconds:                      1
+    leaseExpirationDurationInSeconds:                   2
+
+logging:
+  # url format : /{apname}/{profile}/{label}/{filename}
+  config:               http://localhost:8100/search-service/default/search-service/logback-spring.xml

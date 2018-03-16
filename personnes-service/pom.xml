@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <!-- ****** artifact description ****** -->
-    <groupId>ch.globaz.tmmas</groupId>
+    <groupId>ch.globaz.avs4</groupId>
     <artifactId>personnes-service</artifactId>
     <packaging>pom</packaging>
     <description>Module parent pour le service des personnes, dans le cadre du travail de master MAS-RAD,
@@ -88,19 +88,19 @@
             <!-- ****** Modules applicatifs ****** -->
             <!-- ********************************* -->
             <dependency>
-                <groupId>ch.globaz.tmmas</groupId>
+                <groupId>ch.globaz.avs4</groupId>
                 <artifactId>personnes-service-application</artifactId>
                 <version>${project.parent.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>ch.globaz.tmmas</groupId>
+                <groupId>ch.globaz.avs4</groupId>
                 <artifactId>personnes-service-domain</artifactId>
                 <version>${project.parent.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>ch.globaz.tmmas</groupId>
+                <groupId>ch.globaz.avs4</groupId>
                 <artifactId>personnes-service-infrastructure</artifactId>
                 <version>${project.parent.version}</version>
             </dependency>
